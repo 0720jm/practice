@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<style>
+  *{ color: #777; }
+  .wrap{ margin: 10px; }
+  .title{ color: #000; font-weight: 800; font-size: 20px; }
+  .desc{ color: #000; font-weight: 600; font-size: 15px; margin-top: 20px; }
+  hr{ margin: 30px 0; }
+
+
+  .test5_plus{ color:hotpink; }
+
+  .test6{ color: blue; } 
+
+
+</style>
+<body>
+
+  <div class="wrap">
+    <div class="title"> * 스타일 메서드</div>  
+    <div class="desc">- 해당 선택자에 클래스 추가</div> 
+    <div class="test5">$(선택자).addClass('클래스 이름'');</div>
+    <div class="test6">$(선택자).removeClass('클래스 이름'');</div>
+  </div>
+
+
+  <script>
+
+    $(function(){
+      $('.test5').addClass('test5_plus'); //여기서 class주고 style서 쓰면 먹힘 
+      $('.test6').removeClass('test6'); //html에서 class주고 여기서 삭제해서 효과사라짐
+    }); 
+
+
+
+  </script>
+</body>
+</html>

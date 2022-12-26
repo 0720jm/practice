@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<style>
+
+  *{ color: #777; }
+  .wrap{ margin: 10px; }
+  .title{ color: #000; font-weight: 800; font-size: 20px; }
+  .desc{ color: #000; font-weight: 600; font-size: 15px; margin-top: 20px; }
+  hr{ margin: 30px 0; }
+
+
+  .test7{ color: orange; }
+
+  .test11{ color: skyblue; }
+
+
+  div.ex {
+    color: blue;
+  }
+  span {
+    color: orangered;
+  }
+
+
+</style>
+<body>
+
+  <div class="wrap">
+    <div class="title"> * 속성 메서드</div>
+
+    <div class="desc">- div에서 저장해둔 키,값을 span에서 가져오기 (<a href="http://127.0.0.1:5500/method_attr+data.html">제이쿼리 사이트에 설명있음</a>)</div>
+    <div>
+      <div class="js-ex">
+        저장된 값은
+        <span class="js-num">00</span>
+        이랑
+        <span class="js-str">$$</span>
+        임.
+      </div>
+    </div>
+    
+    <hr>
+
+    <div>
+      <div class="js-test2" data-test="script에서 이 글자(값)가 뜨게하기"></div>
+    </div>
+
+
+  </div>
+
+  <script>
+
+    $(function(){
+      $('.js-ex').data( 'test', { first:33, last: 'orange' } ); //div한테 data의 키,값을 넣어준거임 ( = html에서 data-test="orange"  <이렇게 쓴것과 같음), 값에는 이 외에 여러가지 값들 설정 가능함(사이트에 나와있음)
+      $('.js-num').text( $('.js-ex').data('test').first ); //첫번째 span한테 넣어줄 텍스트는, div한테 준 키(test)의 첫번째 값(16)
+      $('.js-str').text( $('.js-ex').data('test').last ); // eq랑 div.ex넣어도 잘됨. 근데 첫번째에서 키,값 넣어줄 때 div말고 .ex넣으면 안됨 왜지?
+
+      $('.js-test2').text( $('.js-test2').data('test') ); //html에있는 값(aaa) 가져오기. 결과는 aaa가 나와야되는데 안뜸.
+    });
+
+
+
+  </script>
+</body>
+</html>

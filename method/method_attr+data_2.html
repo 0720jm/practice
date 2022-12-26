@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>data demo</title>
+  <style>
+  div {
+    margin: 5px;
+    background: yellow;
+  }
+  button {
+    margin: 5px;
+    font-size: 14px;
+  }
+  p {
+    margin: 5px;
+    color: blue;
+  }
+  span {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<style>
+  
+</style>
+<body>
+
+<div class="desc">- 1.2.3번 버튼에 저장한 데이터값들을, 0번에서 가져오기  (<a href="http://127.0.0.1:5500/method_attr+data.html">제이쿼리 사이트에 설명있음</a>)</div>
+
+<div class="btn-box"> <!-- 이렇게 div로 한번 더 button들을 감싸주면서 명시해줘야 숫자가 0.1.2.3 똑바로 찍힘. 버튼들 중간에 div를 넣으면 숫자가 밀리는현상이 발생함. -->
+  <button>div에서 "blah" 가져오기</button>
+  <button>"blah"를 "hello"로 설정</button>
+  <button>"blah"를 86으로 설정</button>
+  <button>div에서 "blah"를 제거하기</button>  
+</div>
+
+<p>The "blah" value of this div is <span>?</span></p>
+ 
+<script>
+$( "button" ).click(function() {
+  var value;
+  var index = $( this).index();
+  console.log("index : " , index)
+
+  switch ( index ) {
+    case 0 :
+      value = $( "div" ).data( "blah" ); //div에 data-'키' 넣음
+      break;
+    case 1 :
+      $( "div" ).data( "blah", "hello" ); //div에 키,값 넣음
+      value = "Stored!";
+      break;
+    case 2 :
+      $( "div" ).data( "blah", 86 );
+      value = "Stored!";
+      break;
+    case 3 :
+      $( "div" ).removeData( "blah" );
+      value = "Removed!";
+      break;
+  }
+ 
+  $( "span" ).text( "" + value );
+});
+</script>
+ 
+</body>
+</html>
